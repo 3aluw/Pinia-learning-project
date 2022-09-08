@@ -1,13 +1,20 @@
 import { defineStore, acceptHMRUpdate } from "pinia";
-import products from "@/data/products.json"
-export const useProduceStore = defineStore("product",{
+
+export const useProductStore = defineStore("product",{
     state: ()=>{
 return{
-    products : products,
+    products : [],
 }
+    },
+    actions:{
+      async  fetchData(){
+            const res = await fetch("/products.json");
+            this.products = await res.json();
+            
+        }
     }
 }
 
 )
 if (import.meta.hot) {
-    import.meta.hot.accept(acceptHMRUpdate(useProduceStore, import.meta.hot))}
+    import.meta.hot.accept(acceptHMRUpdate(useProductStore, import.meta.hot))}
