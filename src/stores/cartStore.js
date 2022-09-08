@@ -10,6 +10,15 @@ return{
 items : [],
 }
     },
+    getters:{
+        totalCount(){
+        return this.items.reduce((previous,current)=> previous + current.count,0)
+        },
+        isCartEmpty(){
+           
+            return this.items.length === 0;
+        }
+    },
     actions:{
         addItem(count,productId){
 console.log(productId)
