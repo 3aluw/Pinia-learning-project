@@ -9,6 +9,7 @@ import { onMounted } from "vue";
 useCartStore()
 onMounted(()=>{
   useProductStore().fetchData();
+  useCartStore().items = JSON.parse(window.localStorage.getItem("items"))
 })
 
 

@@ -11,6 +11,7 @@ useProductStore();
 const active = ref(false);
 </script>
 <template>
+
   <div class="relative">
     <!-- Icon that always shows -->
     <span class="cursor-pointer" @click="active = true">
@@ -28,9 +29,9 @@ const active = ref(false);
             @updateCount=""
             @clear=""
           />
-        </ul>
+        </ul> 
         <div class="flex justify-end text-2xl mb-5">
-          Total: <strong>$40</strong>
+          Total:  <strong>  {{useCartStore().totalPrice}}$ </strong>
         </div>
         <div class="flex justify-end">
           <AppButton class="secondary mr-2">Clear Cart</AppButton>
